@@ -4,12 +4,12 @@ using namespace std;
 
 struct Torta {
     int id;
-    int preco; // Alterado para int
+    int preco;
     Torta* left;
     Torta* right;
 };
 
-Torta* newTorta(int id, int preco) { // Alterado para int
+Torta* newTorta(int id, int preco) {
     Torta* torta = new Torta;
     torta->id = id;
     torta->preco = preco;
@@ -17,7 +17,7 @@ Torta* newTorta(int id, int preco) { // Alterado para int
     return torta;
 }
 
-Torta* insert(Torta* root, int id, int preco) { // Alterado para int
+Torta* insert(Torta* root, int id, int preco) {
     if (root == NULL) {
         return newTorta(id, preco);
     }
@@ -29,11 +29,17 @@ Torta* insert(Torta* root, int id, int preco) { // Alterado para int
     return root;
 }
 
-void inOrder(Torta* root) {
+void show_in_range(Torta* root, int min, int max) {
     if (root != NULL) {
-        inOrder(root->left);
-        cout << root->id << ":" << root->preco << endl; // Agora imprime como int
-        inOrder(root->right);
+        if (min < root->preco) {
+            show_in_range(root->left, min, max);
+        }
+        if (min <= root->preco && max >= root->preco) {
+            cout << root->id << ":" << root->preco << endl;
+        }
+        if (max > root->preco) {
+            show_in_range(root->right, min, max);
+        }
     }
 }
 
@@ -52,14 +58,17 @@ int main() {
     for(int i = 0; i < T; i++) {
         double EM, P, D, A;
         cin >> EM >> P >> A >> D;
-        int preco = static_cast<int>(EM*P*A+D+A); // Convertido para int
+        int preco = static_cast<int>(EM*P*A+D+A);
         root = insert(root, i, preco);
     }
 
-    inOrder(root);
+    int PFmin, PFmax;
+    cin >> PFmin >> PFmax;
+
+    show_in_range(root, PFmin, PFmax);
 
     deleteTree(root);
     root = NULL;
     
-return 0;
+    return 0;
 }
