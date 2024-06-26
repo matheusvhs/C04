@@ -1,10 +1,6 @@
 # Códigos C04 - Inatel
 
 Conteúdo Programático:
-- Algoritmos de recursivos.
-- Análise de complexidade.
-- Projetos de Algoritmos.
-- Ponteiros e alocação dinâmica.
 - Grafos.
 - Árvores binárias de busca.
 
