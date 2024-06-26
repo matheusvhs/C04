@@ -8,4 +8,4 @@ Conteúdo Programático:
 - Grafos.
 - Árvores binárias de busca.
 
-![Lenin Chan](https://64.media.tumblr.com/tumblr_m9yrbvwofH1rfmqsoo1_250.png)
+![Passei!](https://media.tenor.com/ezk10TtQiCUAAAAi/club-penguin-club-penguin-dance.gif)
